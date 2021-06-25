@@ -1,0 +1,32 @@
+// Select color input
+// Select size input
+
+// When size is submitted by the user, call makeGrid()
+
+function makeGrid() {
+
+// Your code goes here!
+
+}
+const designCanvas = document.getElementById('pixelCanvas');
+const chooseGridSize = document.getElementById('sizePicker');
+
+function makeGrid(event) {
+    designCanvas.innerHTML = "";
+	const height = document.querySelector('#inputHeight').value;
+    const width = document.querySelector('#inputWidth').value;
+	for (var x = 0; x < height; x++) {
+        var rows = designCanvas.insertRow(-1);
+        for (var y = 0; y < width; y++) {
+            rows.insertCell(y);
+		}
+	}
+
+    event.preventDefault();
+    
+	designCanvas.addEventListener('click', function(event) {
+        const pickAColor = document.querySelector('#colorPicker').value;
+        event.target.style.backgroundColor = pickAColor;
+	});
+}
+chooseGridSize.addEventListener('submit', makeGrid);
